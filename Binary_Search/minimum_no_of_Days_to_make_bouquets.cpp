@@ -52,11 +52,64 @@ int findMinimumDays(vector<int>&bloomDay, int m, int k){
     return ans;
 }
 int main(){
-    // vector<int>bloomDay={7,7,7,7,7,13,11,12,7};
-    vector<int>bloomDay={1,10,3,10,2};
+    vector<int>bloomDay={7,7,7,7,7,13,11,12,7};
+    // vector<int>bloomDay={1,10,3,10,2};
     int m=3;
     int k=2;
     int result=findMinimumDays(bloomDay,m,k);
     cout<<result;
     return 0;
 }
+
+
+/* 
+
+#include<bits/stdc++.h>
+using namespace std;
+int findPossible(vector<int>&bloomDay,int day, int k, int m){
+int n=bloomDay.size();
+int count=0;
+int noOfB=0;
+for(int i=0;i<n;i++){
+if(bloomDay[i]<=day){
+count++;
+}else{
+noOfB+=(count/k);
+count=0;
+}
+}
+noOfB+=count/k;
+return noOfB>=m;
+}
+
+int findMinimunDays(vector<int>&bloomDay, int k, int m){
+int n=bloomDay.size();
+int mini=INT_MAX;
+int maxi=INT_MIN;
+for(int i=0;i<n;i++){
+mini=min(mini,bloomDay[i]);
+maxi=max(maxi,bloomDay[i]);
+}
+int low=mini;
+int high=maxi;
+int ans=0;
+while(low<=high){
+int mid=low+(high-low)/2;
+if(possible(bloomDay, mid, k , m)){
+ans=mid;
+high=mid-1;
+}else{
+low=mid+1;
+}
+}
+return ans;
+}
+int main(){
+vector<int>bloomDay={7,7,7,7,4,3,1};
+int k=2;
+int m=3;
+int resultu=findMinimum(bloomDay,k,m);
+cout<<result;
+return 0
+}
+*/
