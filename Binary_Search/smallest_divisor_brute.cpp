@@ -30,3 +30,30 @@ int main(){
     cout<<ans;
     return 0;
 }
+
+
+/*
+#include<bits/stdc++.h>
+using namespace std;
+int findSmallestDiv(vector<int>arr, int threshold){
+int n=arr.size();
+int maxi=INT_MIN;
+for(int i=0;i<n;i++){
+// maxi=*max_element(arr.begin(),arr.end();
+maxi=max(maxi, arr[i]);
+}
+for(int d=1;d<=maxi;d++){
+int sum=0;
+for(int i=0;i<n;i++){
+sum+=ceil((double)arr[i]/d);
+}
+if(sum<=threshold){
+return d;
+}
+}
+return -1;
+}
+int main(){
+return 0;
+}
+*/
